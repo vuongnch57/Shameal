@@ -161,7 +161,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private static final int OPTIONS_SHARE_RECOGNIZED_TEXT_ID = Menu.FIRST + 2;
   private static final int OPTIONS_SHARE_TRANSLATED_TEXT_ID = Menu.FIRST + 3;
 
-  //private ImageView startupView;
+  private ImageView startupView;
   private CameraManager cameraManager;
   private CaptureActivityHandler handler;
   private ViewfinderView viewfinderView;
@@ -228,7 +228,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
     cameraButtonView = findViewById(R.id.camera_button_view);
     resultView = findViewById(R.id.result_view);
-    //startupView = (ImageView)findViewById(R.id.startpage);
+    startupView = (ImageView)findViewById(R.id.startpage);
     
     statusViewBottom = (TextView) findViewById(R.id.status_view_bottom);
     registerForContextMenu(statusViewBottom);
@@ -368,6 +368,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       File storageDirectory = getStorageDirectory();
       if (storageDirectory != null) {
         initOcrEngine(storageDirectory, sourceLanguageCodeOcr, sourceLanguageReadable);
+        //startupView.setVisibility(View.INVISIBLE);
       }
     } else {
       // We already have the engine initialized, so just start the camera.
@@ -381,6 +382,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
    * and requests camera initialization.
    */
   void resumeOCR() {
+	  startupView.setVisibility(View.INVISIBLE);
     Log.d(TAG, "resumeOCR()");
     
     // This method is called when Tesseract has already been successfully initialized, so set 
@@ -720,8 +722,8 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     new OcrInitAsyncTask(this, baseApi, dialog, indeterminateDialog, languageCode, languageName, ocrEngineMode)
       .execute(storageRoot.toString());
     
-    /*if(indeterminateDialog.isShowing() == false)
-    	startupView.setVisibility(View.INVISIBLE);*/
+    //if(indeterminateDialog.isShowing() == false)
+    	
   }
   
   /**

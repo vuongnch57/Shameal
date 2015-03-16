@@ -89,28 +89,29 @@ public final class R {
         public static final int startpage=0x7f020007;
     }
     public static final class id {
-        public static final int camera_button_view=0x7f080010;
+        public static final int camera_button_view=0x7f080011;
         public static final int decode=0x7f080000;
         public static final int decode_failed=0x7f080001;
         public static final int decode_succeeded=0x7f080002;
-        public static final int done_button=0x7f080015;
-        public static final int help_contents=0x7f080014;
-        public static final int imageView1=0x7f080016;
-        public static final int image_view=0x7f08000e;
+        public static final int done_button=0x7f080016;
+        public static final int help_contents=0x7f080015;
+        public static final int imageView1=0x7f080017;
+        public static final int image_view=0x7f08000f;
         public static final int ocr_continuous_decode=0x7f080003;
         public static final int ocr_continuous_decode_failed=0x7f080004;
         public static final int ocr_continuous_decode_succeeded=0x7f080005;
         public static final int ocr_decode=0x7f080006;
         public static final int ocr_decode_failed=0x7f080007;
         public static final int ocr_decode_succeeded=0x7f080008;
-        public static final int ocr_result_text_view=0x7f08000f;
+        public static final int ocr_result_text_view=0x7f080010;
         public static final int preview_view=0x7f08000b;
         public static final int quit=0x7f080009;
         public static final int restart_preview=0x7f08000a;
-        public static final int result_view=0x7f08000d;
-        public static final int shutter_button=0x7f080012;
-        public static final int status_view_bottom=0x7f080013;
-        public static final int status_view_top=0x7f080011;
+        public static final int result_view=0x7f08000e;
+        public static final int shutter_button=0x7f080013;
+        public static final int startpage=0x7f08000d;
+        public static final int status_view_bottom=0x7f080014;
+        public static final int status_view_top=0x7f080012;
         public static final int viewfinder_view=0x7f08000c;
     }
     public static final class layout {
