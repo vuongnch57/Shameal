@@ -83,10 +83,11 @@ public final class R {
         public static final int background_pressed=0x7f020001;
         public static final int ic_launcher=0x7f020002;
         public static final int iris23=0x7f020003;
-        public static final int shutter=0x7f020004;
-        public static final int shutter_button=0x7f020005;
-        public static final int shutter_pressed=0x7f020006;
-        public static final int startpage=0x7f020007;
+        public static final int myprogress_style=0x7f020004;
+        public static final int shutter=0x7f020005;
+        public static final int shutter_button=0x7f020006;
+        public static final int shutter_pressed=0x7f020007;
+        public static final int startpage=0x7f020008;
     }
     public static final class id {
         public static final int camera_button_view=0x7f080011;
@@ -95,7 +96,6 @@ public final class R {
         public static final int decode_succeeded=0x7f080002;
         public static final int done_button=0x7f080016;
         public static final int help_contents=0x7f080015;
-        public static final int imageView1=0x7f080017;
         public static final int image_view=0x7f08000f;
         public static final int ocr_continuous_decode=0x7f080003;
         public static final int ocr_continuous_decode_failed=0x7f080004;
@@ -117,7 +117,7 @@ public final class R {
     public static final class layout {
         public static final int capture=0x7f030000;
         public static final int help=0x7f030001;
-        public static final int startpage=0x7f030002;
+        public static final int my_progress=0x7f030002;
     }
     public static final class raw {
         public static final int beep=0x7f050000;

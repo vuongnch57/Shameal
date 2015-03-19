@@ -19,6 +19,7 @@ package edu.sfsu.cs.orange.ocr;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Timer;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -33,7 +34,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Rect;
-import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -41,7 +42,6 @@ import android.preference.PreferenceManager;
 import android.text.ClipboardManager;
 import android.text.SpannableStringBuilder;
 import android.text.style.CharacterStyle;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.ContextMenu;
@@ -382,7 +382,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
    * and requests camera initialization.
    */
   void resumeOCR() {
-	  startupView.setVisibility(View.INVISIBLE);
+	  startupView.setVisibility(View.INVISIBLE); // invisible loading page
     Log.d(TAG, "resumeOCR()");
     
     // This method is called when Tesseract has already been successfully initialized, so set 
@@ -688,7 +688,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     
     // Display the name of the OCR engine we're initializing in the indeterminate progress dialog box
     indeterminateDialog = new ProgressDialog(this);
-    indeterminateDialog.setProgressStyle(ProgressDialog.THEME_HOLO_LIGHT);
+    //indeterminateDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
     //indeterminateDialog.setContentView(R.layout.startpage);
     //indeterminateDialog.setTitle("Please wait");
     /*String ocrEngineModeName = getOcrEngineModeName();
@@ -697,11 +697,12 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     } else {
       indeterminateDialog.setMessage("Initializing " + ocrEngineModeName + " OCR engine for " + languageName + "...");
     }*/
-    indeterminateDialog.setMessage("Loading...");
+    //indeterminateDialog.setMessage("Loading...");
     indeterminateDialog.setCancelable(false);
+    indeterminateDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+    indeterminateDialog.setIndeterminate(true);
     indeterminateDialog.show();
-    
-    
+    indeterminateDialog.setContentView(R.layout.my_progress);
     
     if (handler != null) {
       handler.quitSynchronously();
