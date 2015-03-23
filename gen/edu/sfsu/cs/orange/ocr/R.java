@@ -94,8 +94,6 @@ public final class R {
         public static final int decode=0x7f080000;
         public static final int decode_failed=0x7f080001;
         public static final int decode_succeeded=0x7f080002;
-        public static final int done_button=0x7f080016;
-        public static final int help_contents=0x7f080015;
         public static final int image_view=0x7f08000f;
         public static final int ocr_continuous_decode=0x7f080003;
         public static final int ocr_continuous_decode_failed=0x7f080004;
@@ -116,8 +114,7 @@ public final class R {
     }
     public static final class layout {
         public static final int capture=0x7f030000;
-        public static final int help=0x7f030001;
-        public static final int my_progress=0x7f030002;
+        public static final int my_progress=0x7f030001;
     }
     public static final class raw {
         public static final int beep=0x7f050000;

@@ -82,7 +82,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   // Note: These constants will be overridden by any default values defined in preferences.xml.
   
   /** ISO 639-3 language code indicating the default recognition language. */
-  public static final String DEFAULT_SOURCE_LANGUAGE_CODE = "eng";
+  public static final String DEFAULT_SOURCE_LANGUAGE_CODE = "vie";
   
   /** ISO 639-1 language code indicating the default target language for translation. */
   public static final String DEFAULT_TARGET_LANGUAGE_CODE = "es";
@@ -565,12 +565,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       startActivity(intent);
       break;
     }
-    /*case ABOUT_ID: {
-      intent = new Intent(this, HelpActivity.class);
-      intent.putExtra(HelpActivity.REQUESTED_PAGE_KEY, HelpActivity.ABOUT_PAGE);
-      startActivity(intent);
-      break;
-    }*/
     }
     return super.onOptionsItemSelected(item);
   }
@@ -688,16 +682,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     
     // Display the name of the OCR engine we're initializing in the indeterminate progress dialog box
     indeterminateDialog = new ProgressDialog(this);
-    //indeterminateDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-    //indeterminateDialog.setContentView(R.layout.startpage);
-    //indeterminateDialog.setTitle("Please wait");
-    /*String ocrEngineModeName = getOcrEngineModeName();
-    if (ocrEngineModeName.equals("Both")) {
-      indeterminateDialog.setMessage("Initializing Cube and Tesseract OCR engines for " + languageName + "...");
-    } else {
-      indeterminateDialog.setMessage("Initializing " + ocrEngineModeName + " OCR engine for " + languageName + "...");
-    }*/
-    //indeterminateDialog.setMessage("Loading...");
     indeterminateDialog.setCancelable(false);
     indeterminateDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
     indeterminateDialog.setIndeterminate(true);
@@ -722,8 +706,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     baseApi = new TessBaseAPI();
     new OcrInitAsyncTask(this, baseApi, dialog, indeterminateDialog, languageCode, languageName, ocrEngineMode)
       .execute(storageRoot.toString());
-    
-    //if(indeterminateDialog.isShowing() == false)
     	
   }
   
