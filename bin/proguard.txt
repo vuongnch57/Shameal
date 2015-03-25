@@ -1,10 +1,23 @@
-# view AndroidManifest.xml #generated:37
+# view res/layout/dialog.xml #generated:58
+# view res/layout/dialog.xml #generated:66
+# view res/layout/snackbar.xml #generated:23
+-keep class com.gc.materialdesign.views.ButtonFlat { <init>(...); }
+
+# view res/layout/progress_dialog.xml #generated:17
+-keep class com.gc.materialdesign.views.ProgressBarCircularIndeterminate { <init>(...); }
+
+# view res/layout/color_selector.xml #generated:44
+# view res/layout/color_selector.xml #generated:69
+# view res/layout/color_selector.xml #generated:94
+-keep class com.gc.materialdesign.views.Slider { <init>(...); }
+
+# view AndroidManifest.xml #generated:39
 -keep class edu.sfsu.cs.orange.ocr.CaptureActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:48
+# view AndroidManifest.xml #generated:50
 -keep class edu.sfsu.cs.orange.ocr.HelpActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:56
+# view AndroidManifest.xml #generated:58
 -keep class edu.sfsu.cs.orange.ocr.PreferencesActivity { <init>(...); }
 
 # view res/layout/capture.xml #generated:27

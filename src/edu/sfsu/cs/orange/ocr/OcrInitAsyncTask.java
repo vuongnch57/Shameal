@@ -66,7 +66,7 @@ final class OcrInitAsyncTask extends AsyncTask<String, String, Boolean> {
   private Context context;
   private TessBaseAPI baseApi;
   private ProgressDialog dialog;
-  private ProgressDialog indeterminateDialog;
+  //private ProgressDialog indeterminateDialog;
   private final String languageCode;
   private String languageName;
   private int ocrEngineMode;
@@ -90,13 +90,13 @@ final class OcrInitAsyncTask extends AsyncTask<String, String, Boolean> {
    *          Whether to use Tesseract, Cube, or both
    */
   OcrInitAsyncTask(CaptureActivity activity, TessBaseAPI baseApi, ProgressDialog dialog, 
-      ProgressDialog indeterminateDialog, String languageCode, String languageName, 
+       String languageCode, String languageName, 
       int ocrEngineMode) {
     this.activity = activity;
     this.context = activity.getBaseContext();
     this.baseApi = baseApi;
     this.dialog = dialog;
-    this.indeterminateDialog = indeterminateDialog;
+    //this.indeterminateDialog = indeterminateDialog;
     this.languageCode = languageCode;
     this.languageName = languageName;
     this.ocrEngineMode = ocrEngineMode;
@@ -360,7 +360,7 @@ final class OcrInitAsyncTask extends AsyncTask<String, String, Boolean> {
       throws IOException {
     // Send an HTTP GET request for the file
     Log.d(TAG, "Sending GET request to " + url + "...");
-    publishProgress("Downloading data for " + languageName + "...", "0");
+    publishProgress("Downloading data ...", "0");
     HttpURLConnection urlConnection = null;
     urlConnection = (HttpURLConnection) url.openConnection();
     urlConnection.setAllowUserInteraction(false);
@@ -397,7 +397,7 @@ final class OcrInitAsyncTask extends AsyncTask<String, String, Boolean> {
       percentComplete = (int) ((downloaded / (float) fileSize) * 100);
       if (percentComplete > percentCompleteLast) {
         publishProgress(
-            "Downloading data for " + languageName + "...",
+            "Downloading data ...",
             percentComplete.toString());
         percentCompleteLast = percentComplete;
       }
@@ -440,7 +440,7 @@ final class OcrInitAsyncTask extends AsyncTask<String, String, Boolean> {
     int unzippedBytes = 0;
     final Integer progressMin = 0;
     int progressMax = 100 - progressMin;
-    publishProgress("Uncompressing data for " + languageName + "...",
+    publishProgress("Uncompressing data ...",
         progressMin.toString());
 
     // If the file is a tar file, just show progress to 50%
@@ -465,8 +465,7 @@ final class OcrInitAsyncTask extends AsyncTask<String, String, Boolean> {
           + progressMin;
 
       if (percentComplete > percentCompleteLast) {
-        publishProgress("Uncompressing data for " + languageName
-            + "...", percentComplete.toString());
+        publishProgress("Uncompressing data ...", percentComplete.toString());
         percentCompleteLast = percentComplete;
       }
     }
@@ -518,7 +517,7 @@ final class OcrInitAsyncTask extends AsyncTask<String, String, Boolean> {
     int unzippedBytes = 0;
     final Integer progressMin = 50;
     final int progressMax = 100 - progressMin;
-    publishProgress("Uncompressing data for " + languageName + "...",
+    publishProgress("Uncompressing data ...",
         progressMin.toString());
 
     // Extract all the files
@@ -541,7 +540,7 @@ final class OcrInitAsyncTask extends AsyncTask<String, String, Boolean> {
         percentComplete = (int) ((unzippedBytes / (float) uncompressedSize) * progressMax)
             + progressMin;
         if (percentComplete > percentCompleteLast) {
-          publishProgress("Uncompressing data for " + languageName + "...", 
+          publishProgress("Uncompressing data ...", 
               percentComplete.toString());
           percentCompleteLast = percentComplete;
         }
@@ -625,7 +624,7 @@ final class OcrInitAsyncTask extends AsyncTask<String, String, Boolean> {
       File destinationDir, File destinationFile) throws IOException,
       FileNotFoundException {
     // Attempt to open the zip archive
-    publishProgress("Uncompressing data for " + languageName + "...", "0");
+    publishProgress("Uncompressing data ...", "0");
     ZipInputStream inputStream = new ZipInputStream(context.getAssets().open(sourceFilename));
 
     // Loop through all the files and folders in the zip archive (but there should just be one)
@@ -657,7 +656,7 @@ final class OcrInitAsyncTask extends AsyncTask<String, String, Boolean> {
           unzippedSize += count;
           percentComplete = (int) ((unzippedSize / (long) zippedFileSize) * 100);
           if (percentComplete > percentCompleteLast) {
-            publishProgress("Uncompressing data for " + languageName + "...", 
+            publishProgress("Uncompressing data ...", 
                 percentComplete.toString(), "0");
             percentCompleteLast = percentComplete;
           }
@@ -694,7 +693,7 @@ final class OcrInitAsyncTask extends AsyncTask<String, String, Boolean> {
     super.onPostExecute(result);
     
     try {
-      indeterminateDialog.dismiss();
+      //indeterminateDialog.dismiss();
     } catch (IllegalArgumentException e) {
       // Catch "View not attached to window manager" error, and continue
     }
